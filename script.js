@@ -1,5 +1,63 @@
 // Smooth scrolling and interactive elements
 document.addEventListener('DOMContentLoaded', function() {
+    // Shuffling text animation for hero name
+    function shuffleHeroName() {
+        const heroName = document.getElementById('hero-name');
+        if (!heroName) return;
+        
+        const originalText = 'Evan Jiang.';
+        const upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
+        
+        // Clear the content and create letter spans
+        heroName.innerHTML = '';
+        const letterSpans = [];
+        
+        for (let i = 0; i < originalText.length; i++) {
+            const span = document.createElement('span');
+            span.className = 'letter';
+            if (originalText[i] === ' ') {
+                span.textContent = '\u00A0'; // Non-breaking space to ensure it displays
+            } else {
+                // Start with empty content - letters will appear when animation starts
+                span.textContent = '';
+            }
+            heroName.appendChild(span);
+            letterSpans.push(span);
+        }
+        
+        // Animate each letter sequentially
+        letterSpans.forEach((span, index) => {
+            if (originalText[index] === ' ') {
+                span.textContent = '\u00A0'; // Non-breaking space to ensure it displays
+                return;
+            }
+            
+            const delay = index * 80; // 80ms delay between each letter (faster)
+            const shuffleDuration = 120; // How long each letter shuffles (fewer characters)
+            const shuffleInterval = 30; // How fast the shuffling happens (faster)
+            
+            setTimeout(() => {
+                let shuffleCount = 0;
+                const maxShuffles = shuffleDuration / shuffleInterval;
+                const isUpperCase = originalText[index] === originalText[index].toUpperCase();
+                const shuffleChars = isUpperCase ? upperLetters : lowerLetters;
+                
+                const shuffleTimer = setInterval(() => {
+                    if (shuffleCount < maxShuffles) {
+                        span.textContent = shuffleChars[Math.floor(Math.random() * shuffleChars.length)];
+                        shuffleCount++;
+                    } else {
+                        span.textContent = originalText[index];
+                        clearInterval(shuffleTimer);
+                    }
+                }, shuffleInterval);
+            }, delay);
+        });
+    }
+    
+    // Start the animation
+    shuffleHeroName();
     // Add smooth reveal animation for cards
     const observerOptions = {
         threshold: 0.1,
