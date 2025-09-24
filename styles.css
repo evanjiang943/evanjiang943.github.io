@@ -822,9 +822,15 @@ a:hover {
         --viewport-padding-bottom: 20px;
     }
     
+    html {
+        overflow-x: hidden;
+    }
+    
     body {
         padding: 0;
         overflow-x: hidden;
+        width: 100vw;
+        max-width: 100vw;
     }
     
     .sidebar {
@@ -842,14 +848,19 @@ a:hover {
     .main-content {
         margin-left: 0;
         width: 100%;
+        max-width: 100vw;
         min-height: auto;
         padding: 0;
+        overflow-x: hidden;
     }
     
     .content {
         padding: var(--spacing-md) var(--spacing-lg);
         max-width: 100%;
+        width: 100%;
         margin: 0;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     .nav-links {
@@ -944,6 +955,9 @@ a:hover {
     /* Improve mobile card spacing */
     .project-tile, .experience-card, .education-card {
         margin-bottom: var(--spacing-lg);
+        max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
     }
     
     /* Better mobile navigation */
@@ -959,6 +973,27 @@ a:hover {
     
     .timeline-content {
         margin-left: 30px;
+    }
+    
+    /* Prevent horizontal overflow on mobile */
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    img, video, iframe, embed, object {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    pre, code {
+        overflow-x: auto;
+        word-wrap: break-word;
+    }
+    
+    .card, .research-card {
+        overflow-x: hidden;
+        word-wrap: break-word;
     }
     
     .project-number {
