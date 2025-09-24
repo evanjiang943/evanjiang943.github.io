@@ -996,6 +996,12 @@ a:hover {
         word-wrap: break-word;
     }
     
+    /* Hide YouTube and Instagram on mobile */
+    .social-links a[href*="youtube"], 
+    .social-links a[href*="instagram"] {
+        display: none;
+    }
+    
     .project-number {
         font-size: var(--font-size-lg);
     }
