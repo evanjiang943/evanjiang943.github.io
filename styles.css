@@ -145,6 +145,7 @@ body {
     min-height: calc(100vh - var(--viewport-padding-vertical) - var(--viewport-padding-bottom));
     background: var(--primary-white);
     width: calc(100vw - var(--sidebar-width) - var(--viewport-padding-horizontal) - var(--spacing-sm));
+    overflow-x: hidden;
 }
 
 .content {
@@ -986,6 +987,24 @@ a:hover {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Hide scrollbars on desktop while keeping scroll functionality */
+@media (min-width: 769px) {
+    body::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+    
+    html::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
 }
 
 /* Selection styles */
