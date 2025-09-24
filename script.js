@@ -228,13 +228,12 @@ function updatePSTTime() {
     const militaryTime = pstTime.toLocaleTimeString('en-US', {
         hour12: false,
         hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+        minute: '2-digit'
     });
     
     const timeElement = document.getElementById('pst-time');
     if (timeElement) {
-        timeElement.textContent = `[${militaryTime}]`;
+        timeElement.textContent = militaryTime;
     }
 }
 

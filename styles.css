@@ -816,9 +816,14 @@ a:hover {
 
 @media (max-width: 768px) {
     :root {
-        --viewport-padding-horizontal: 20px;
-        --viewport-padding-vertical: 32px;
+        --viewport-padding-horizontal: 16px;
+        --viewport-padding-vertical: 20px;
         --viewport-padding-bottom: 20px;
+    }
+    
+    body {
+        padding: 0;
+        overflow-x: hidden;
     }
     
     .sidebar {
@@ -827,16 +832,21 @@ a:hover {
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--border-gray);
+        padding: var(--spacing-md) var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
     }
     
     .main-content {
         margin-left: 0;
         width: 100%;
+        min-height: auto;
+        padding: 0;
     }
     
     .content {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md) var(--spacing-lg);
         max-width: 100%;
+        margin: 0;
     }
     
     .nav-links {
@@ -865,8 +875,62 @@ a:hover {
         gap: var(--spacing-md);
     }
     
+    .nav-footer {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        padding: var(--spacing-sm) 0;
+        margin-top: var(--spacing-md);
+    }
+    
+    .social-links {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: var(--spacing-sm);
+        justify-content: flex-start;
+    }
+    
     .project-tile {
         padding: var(--spacing-md);
+    }
+    
+    /* Mobile typography improvements */
+    .hero-name {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.1;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero-tagline {
+        font-size: var(--font-size-base);
+        line-height: 1.5;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Improve mobile card spacing */
+    .project-tile, .experience-card, .education-card {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    /* Better mobile navigation */
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-base);
+    }
+    
+    /* Mobile timeline adjustments */
+    .timeline {
+        padding-left: var(--spacing-md);
+    }
+    
+    .timeline-content {
+        margin-left: 30px;
     }
     
     .project-number {
