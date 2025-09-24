@@ -11,268 +11,94 @@
     <!-- Vertical Navigation -->
     <nav class="sidebar">
         <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="education.html" class="nav-link">Education</a>
-            <a href="experience.html" class="nav-link">Experience</a>
-            <a href="research.html" class="nav-link">Research</a>
-            <a href="projects.html" class="nav-link active">Projects</a>
-        </div>
-        <div class="nav-footer">
-            <span class="contact-link">Made in New York City</span>
+            <a href="index.html" class="nav-link">home</a>
+            <a href="education.html" class="nav-link">education</a>
+            <a href="experience.html" class="nav-link">experience</a>
+            <a href="research.html" class="nav-link">research</a>
+            <a href="projects.html" class="nav-link active">projects</a>
         </div>
     </nav>
+
+    <!-- Footer -->
+    <div class="nav-footer">
+        <span class="contact-link">Made in New York City</span>
+    </div>
 
     <!-- Main Content -->
     <main class="main-content">
         <div class="content">
-        <!-- Page Header -->
-        <section class="page-header">
-            <h1 class="page-title">Projects</h1>
-            <p class="page-subtitle">Technical projects and personal work</p>
-        </section>
-
-        <!-- Featured Projects -->
-        <section class="section">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="projects-grid">
-                <div class="project-card featured">
-                    <div class="project-header">
-                        <h3 class="project-title">Automated Grading System</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/evanjiang943" target="_blank" class="project-link">
-                                GitHub
-                            </a>
+            <!-- Projects Showcase -->
+            <section class="section">
+                <div class="projects-showcase">
+                    <div class="project-tile featured">
+                        <div class="project-tile-header">
+                            <div class="project-number">01</div>
+                            <div class="project-badges">
+                                <span class="project-badge primary">full-stack</span>
+                                <a href="https://github.com/evanjiang943" target="_blank" class="project-link-mini">github</a>
+                            </div>
+                        </div>
+                        <h3 class="project-tile-title">automated grading system</h3>
+                        <p class="project-tile-desc">llm-powered grading platform for latex assignments with fastapi backend and react frontend</p>
+                        <div class="project-tile-tech">
+                            <span class="mini-tech">python</span>
+                            <span class="mini-tech">react</span>
+                            <span class="mini-tech">openai</span>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Full-stack web application for automated grading of LaTeX assignments using LLM-based evaluation. 
-                            Built with FastAPI backend, React frontend, and integrated with OpenAI API for intelligent assessment.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Features</h4>
-                            <ul>
-                                <li>LaTeX parsing and content extraction</li>
-                                <li>LLM-powered grading with rubric evaluation</li>
-                                <li>Real-time submission processing</li>
-                                <li>Interactive grade review interface</li>
-                            </ul>
+                    
+                    <div class="project-tile featured">
+                        <div class="project-tile-header">
+                            <div class="project-number">02</div>
+                            <div class="project-badges">
+                                <span class="project-badge enterprise">enterprise</span>
+                                <span class="project-status-mini">in dev</span>
+                            </div>
                         </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">OpenAI API</span>
-                            <span class="tech-tag">SQLite</span>
+                        <h3 class="project-tile-title">demi</h3>
+                        <p class="project-tile-desc">multi-agent orchestration system for automated data science and ml workflows</p>
+                        <div class="project-tile-tech">
+                            <span class="mini-tech">kubernetes</span>
+                            <span class="mini-tech">airflow</span>
+                            <span class="mini-tech">langchain</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-tile featured">
+                        <div class="project-tile-header">
+                            <div class="project-number">03</div>
+                            <div class="project-badges">
+                                <span class="project-badge recruiting">talent</span>
+                                <span class="project-status-mini">concept</span>
+                            </div>
+                        </div>
+                        <h3 class="project-tile-title">automated talent search</h3>
+                        <p class="project-tile-desc">intelligent recruitment platform using nlp and ml for senior engineering talent discovery</p>
+                        <div class="project-tile-tech">
+                            <span class="mini-tech">nlp</span>
+                            <span class="mini-tech">ml</span>
+                            <span class="mini-tech">scraping</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-tile academic">
+                        <div class="project-tile-header">
+                            <div class="project-number">04</div>
+                            <div class="project-badges">
+                                <span class="project-badge academic">cs262</span>
+                                <span class="project-status-mini">soon</span>
+                            </div>
+                        </div>
+                        <h3 class="project-tile-title">distributed systems</h3>
+                        <p class="project-tile-desc">fault-tolerant system with consensus, replication, and failure recovery mechanisms</p>
+                        <div class="project-tile-tech">
+                            <span class="mini-tech">python</span>
+                            <span class="mini-tech">rpc</span>
+                            <span class="mini-tech">threading</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Quantitative Trading Strategies</h3>
-                        <div class="project-status">
-                            <span class="status-badge private">Private</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Development of systematic trading strategies using machine learning models for options and equity markets. 
-                            Implemented backtesting framework with risk management and performance analytics.
-                        </p>
-                        <div class="project-features">
-                            <h4>Key Components</h4>
-                            <ul>
-                                <li>ML-based signal generation</li>
-                                <li>Portfolio optimization algorithms</li>
-                                <li>Risk management systems</li>
-                                <li>Performance attribution analysis</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NumPy</span>
-                            <span class="tech-tag">pandas</span>
-                            <span class="tech-tag">scikit-learn</span>
-                            <span class="tech-tag">SQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Personal Website</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/evanjiang943" target="_blank" class="project-link">
-                                GitHub
-                            </a>
-                            <a href="#" class="project-link">
-                                Live Site
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Clean, minimalist personal website built with modern web technologies. 
-                            Features responsive design, smooth animations, and optimized performance.
-                        </p>
-                        <div class="project-features">
-                            <h4>Design Principles</h4>
-                            <ul>
-                                <li>Minimalist aesthetic with pastel colors</li>
-                                <li>Mobile-first responsive design</li>
-                                <li>Accessibility and performance optimized</li>
-                                <li>Multi-page architecture</li>
-                            </ul>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">GitHub Pages</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Academic Projects -->
-        <section class="section">
-            <h2 class="section-title">Academic Projects</h2>
-            
-            <div class="academic-projects">
-                <div class="project-card academic">
-                    <div class="project-header">
-                        <h3 class="project-title">Distributed Computing Framework</h3>
-                        <span class="course-tag">CS 262: Distributed Computing</span>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Implemented a fault-tolerant distributed computing system with consensus algorithms and load balancing.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">gRPC</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card academic">
-                    <div class="project-header">
-                        <h3 class="project-title">Neural Network from Scratch</h3>
-                        <span class="course-tag">CS 181: Machine Learning</span>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Built a complete neural network implementation with backpropagation, various activation functions, and optimization algorithms.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NumPy</span>
-                            <span class="tech-tag">Matplotlib</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card academic">
-                    <div class="project-header">
-                        <h3 class="project-title">Big Data Analytics Pipeline</h3>
-                        <span class="course-tag">CS 224: Algorithms for Big Data</span>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Developed scalable data processing pipeline for large-scale analytics using streaming algorithms and approximation techniques.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Apache Spark</span>
-                            <span class="tech-tag">Kafka</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Skills -->
-        <section class="section">
-            <h2 class="section-title">Technical Proficiency</h2>
-            <div class="skills-detailed">
-                <div class="skill-category-detailed">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Java</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">C/C++</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript/TypeScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">SQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category-detailed">
-                    <h3>Frameworks & Tools</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <span class="skill-name">React/Next.js</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">FastAPI/Flask</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">PyTorch/TensorFlow</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">AWS/Docker</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Git/Linux</span>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+            </section>
         </div>
         
         <!-- Social Links -->

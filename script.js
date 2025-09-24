@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const heroName = document.getElementById('hero-name');
         if (!heroName) return;
         
-        const originalText = 'Evan Jiang.';
+        const originalText = 'evan jiang';
         const upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
         
@@ -16,6 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 0; i < originalText.length; i++) {
             const span = document.createElement('span');
             span.className = 'letter';
+            
+            // Add special class for 'a' letters
+            if (originalText[i] === 'a') {
+                span.className += ' letter-a';
+                console.log('Added letter-a class to position', i);
+            }
+            
             if (originalText[i] === ' ') {
                 span.textContent = '\u00A0'; // Non-breaking space to ensure it displays
             } else {
@@ -29,9 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Animate each letter sequentially
         letterSpans.forEach((span, index) => {
             if (originalText[index] === ' ') {
-                span.textContent = '\u00A0'; // Non-breaking space to ensure it displays
+                // Space doesn't animate, just set it directly
+                span.textContent = '\u00A0';
                 return;
             }
+            
             
             const delay = index * 80; // 80ms delay between each letter (faster)
             const shuffleDuration = 120; // How long each letter shuffles (fewer characters)
@@ -40,8 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 let shuffleCount = 0;
                 const maxShuffles = shuffleDuration / shuffleInterval;
-                const isUpperCase = originalText[index] === originalText[index].toUpperCase();
-                const shuffleChars = isUpperCase ? upperLetters : lowerLetters;
+                const shuffleChars = lowerLetters;
                 
                 const shuffleTimer = setInterval(() => {
                     if (shuffleCount < maxShuffles) {
@@ -73,13 +81,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe all cards for animation
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+    // Page transition animations
+    const pageContent = document.querySelector('.content');
+    const mainContent = document.querySelector('.main-content');
+    
+    // Set up initial page load animation
+    if (pageContent) {
+        pageContent.style.opacity = '0';
+        pageContent.style.transform = 'translateY(10px)';
+        pageContent.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        
+        setTimeout(() => {
+            pageContent.style.opacity = '1';
+            pageContent.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    // Add click handlers to navigation links for smooth transitions
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.href;
+            
+            // Animate out current content
+            if (pageContent) {
+                pageContent.style.opacity = '0';
+                pageContent.style.transform = 'translateY(-10px)';
+            }
+            
+            // Navigate to new page after animation
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 200);
+        });
     });
 
     // Add subtle parallax effect to header

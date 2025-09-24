@@ -11,11 +11,11 @@
     <!-- Vertical Navigation -->
     <nav class="sidebar">
         <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="education.html" class="nav-link">Education</a>
-            <a href="experience.html" class="nav-link">Experience</a>
-            <a href="research.html" class="nav-link active">Research</a>
-            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="index.html" class="nav-link">home</a>
+            <a href="education.html" class="nav-link">education</a>
+            <a href="experience.html" class="nav-link">experience</a>
+            <a href="research.html" class="nav-link active">research</a>
+            <a href="projects.html" class="nav-link">projects</a>
         </div>
         <div class="nav-footer">
             <span class="contact-link">Made in New York City</span>
@@ -25,82 +25,141 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="content">
-        <!-- Page Header -->
-        <section class="page-header">
-            <h1 class="page-title">Research</h1>
-            <p class="page-subtitle">Academic research in machine learning and computer systems</p>
-        </section>
-
-        <!-- Current Research -->
+        <!-- Research -->
         <section class="section">
-            <h2 class="section-title">Current Research</h2>
-            
+            <!-- Graph Summarization -->
             <div class="card research-card">
                 <div class="research-header">
-                    <h3 class="research-title">Data Bucketing and Importance Weighting for LLMs</h3>
-                    <div class="research-meta">
-                        <span class="research-period">01/2024 – 02/2025</span>
-                        <span class="research-status active">Active</span>
-                    </div>
+                <h3 class="research-title"><a href="https://github.com/evanjiang943/graph-summarization" target="_blank">Evaluation and Comparison of Graph Summarization Methods</a></h3>
+                <span class="research-period">2025</span>
                 </div>
-                <div class="research-advisors">
-                    <span class="advisor">Dr. Eran Malach</span>
-                    <span class="advisor">Dr. David Brandfonbrener</span>
-                    <span class="institution">Harvard Kempner Institute</span>
+                <div class="research-content">
+                <p class="research-abstract">
+                    <em>Large-scale graph analysis is computationally expensive, but many applications only need approximate results. How do different graph summarization methods compare across spectral, community, distance, and centrality tasks, and which approach works best for specific use cases?</em>
+                </p>
+                <div class="research-highlights">
+                    <ul class="achievements">
+                    <li>Benchmarked <strong>3 paradigms</strong> (spectral sparsification, community collapse, spectral coarsening) on <strong>4 web graphs</strong> up to <strong>875K nodes / 7.6M edges</strong> evaluated on 5 fidelity metrics</strong>: spectral error, community NMI, average stretch, PageRank Precision@k, compression ratio</li>
+                    <li>Collapse minimized spectral error and path distortion at extreme compression (CompR ≈ <strong>10⁻³</strong> to <strong>10⁻⁴</strong>), sparsifier was fastest (<strong>~6 to 27s</strong> summarize) and best at community retention (NMI up to <strong>0.86</strong>), coarsening achieved top <strong>PageRank P@50 = 1.00</strong> at moderate compression</li>
+                    <li>Provided <strong>task-driven guidance</strong> for choosing methods by metric and runtime budget; released modular code and reproducible protocol</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="card research-card">
+                <div class="research-header">
+                    <h3 class="research-title"><a href="https://github.com/evanjiang943/data-bucketing-llm" target="_blank">Data Bucketing and Importance Weighting for LLMs</a></h3>
+                    <span class="research-period">2025</span>
                 </div>
                 <div class="research-content">
                     <p class="research-abstract">
-                        Developing novel pre-processing pipelines for categorizing text data into buckets that align with identified downstream tasks, 
-                        along with importance weighting frameworks for pre-training data sampling to improve downstream performance.
+                        <em>Large language models require massive datasets for training, but not all data is equally valuable for downstream performance. How can we systematically identify and weight the most important training data to improve downstream task performance while reducing computational costs?</em>
                     </p>
                     <div class="research-highlights">
-                        <h4>Key Contributions</h4>
                         <ul class="achievements">
                             <li>Researched new pre-processing pipeline for categorizing text data into buckets that align with identified downstream tasks</li>
-                            <li>Developed importance weighting framework for pre-training data sampling to improve downstream performance</li>
-                            <li>Investigating optimal data selection strategies for large language model training</li>
+                            <li>Investigated optimal data selection strategies for large language model training and developed importance weighting framework for pre-training data sampling to improve downstream performance</li>
                         </ul>
-                    </div>
-                    <div class="research-keywords">
-                        <span class="keyword">Machine Learning</span>
-                        <span class="keyword">Large Language Models</span>
-                        <span class="keyword">Data Processing</span>
-                        <span class="keyword">Importance Sampling</span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Previous Research -->
-        <section class="section">
-            <h2 class="section-title">Previous Research</h2>
-            
+            <!-- Robustifying Synthetic Data Generation for LLMs -->
             <div class="card research-card">
                 <div class="research-header">
-                    <h3 class="research-title">Parallelizing Neural Network Hyperparameter Tuning</h3>
-                    <div class="research-meta">
-                        <span class="research-period">02/2023 – 05/2023</span>
-                        <span class="research-status completed">Completed</span>
-                    </div>
+                  <h3 class="research-title"><a href="https://github.com/evanjiang943/synthetic-data-robustness" target="_blank">Robustifying Synthetic Data Generation for LLMs</a></h3>
+                  <span class="research-period">2024</span>
+                </div>
+                <div class="research-content">
+                  <p class="research-abstract">
+                    <em>Recursive training on synthetic data triggers model collapse where diversity shrinks, tails vanish, and outputs degrade over generations. How can we design sampling schemes that keep synthetic text close to real-data distributions while preserving coherence and preventing model collapse?</em>
+                  </p>
+                  <div class="research-highlights">
+                    <ul class="achievements">
+                      <li>Compared <strong>3 sampling regimes</strong>: baseline single-candidate, perplexity-based, and <strong>reference-proximity</strong> using embedding similarity to a held-out reference set</li>
+                      <li>Low-perplexity selection collapsed into spaces/punctuation; high-perplexity increased diversity but produced incoherent "gibberish", showing perplexity/log-prob are <strong>insufficient</strong> quality metrics</li>
+                      <li><strong>Reference-proximity sampling</strong> yielded the <strong>smallest distribution shift</strong> in PCA of text embeddings and maintained coherence across generations (up to ~10)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+            <!-- Bipartisanship in Congressional Voting -->
+            <div class="card research-card">
+                <div class="research-header">
+                <h3 class="research-title"><a href="https://github.com/evanjiang943/congressional-voting-networks" target="_blank">Bipartisanship in Congressional Voting Networks</a></h3>
+                <span class="research-period">2024</span>
+                </div>
+                <div class="research-content">
+                <p class="research-abstract">
+                    <em>Political polarization in Congress has increased dramatically, but traditional party affiliation metrics may miss nuanced voting patterns and cross-party collaboration. How can we model congressional voting behavior as networks to quantify bipartisanship and identify influential cross-party actors?</em>
+                </p>
+                <div class="research-highlights">
+                    <ul class="achievements">
+                    <li>Built binary and continuous similarity graphs from GovTrack roll calls; filtered to substantive bills and cleaned participation gaps</li>
+                    <li>Applied <strong>DCMM</strong> to estimate influence (θ) and mixed memberships (π) across party communities; achieved <strong>98.9% party-alignment accuracy</strong></li>
+                    <li>Identified <strong>moderate, cross-party actors</strong> (e.g., Rep. Brian Fitzpatrick (R), Rep. Henry Cuellar (D)) and linked bipartisanship with higher network influence in the binary model</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <!-- Fairness in Deferred Acceptance -->
+            <div class="card research-card">
+                <div class="research-header">
+                  <h3 class="research-title"><a href="https://github.com/evanjiang943/fairness-deferred-acceptance" target="_blank">Fairness in Deferred Acceptance</a></h3>
+                  <span class="research-period">2023</span>
+                </div>
+                <div class="research-content">
+                  <p class="research-abstract">
+                    <em>Deferred acceptance (DA) algorithms guarantee stable matchings but inherently favor the proposing side, creating systematic unfairness. How do different stable matchings compare in terms of fairness and welfare, and how do preference correlation patterns affect these trade-offs?</em>
+                  </p>
+                  <div class="research-highlights">
+                    <ul class="achievements">
+                      <li>Built a simulation engine to <strong>enumerate stable matchings</strong> and construct the <strong>stable matching lattice</strong>; implemented 3 enumeration methods (naive, achievable-partner constrained, polytope vertex enumeration), observed <strong>~10 to 13× speedups</strong> for the achievable method vs naive at n∈{8,10}</li>
+                      <li>DA extremes often maximize aggregate welfare for small n, but as n grows the <strong>welfare-maximizer shifts interior</strong>; the <strong>inequality-minimizer typically lies in the lattice interior</strong></li>
+                      <li><strong>L2 is more robust</strong> than L1; optimal points from L2 welfare/equality coincide more frequently than L1, penalizing "very bad for a few" outcomes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            <!-- Multi-Learner Strategic Manipulation -->
+            <div class="card research-card">
+                <div class="research-header">
+                  <h3 class="research-title"><a href="https://github.com/evanjiang943/multi-learner-strategic" target="_blank">Multi-Learner Strategic Manipulation</a></h3>
+                  <span class="research-period">2023</span>
+                </div>
+                <div class="research-content">
+                  <p class="research-abstract">
+                    <em>Multiple algorithms often make coupled decisions about the same person (e.g., banks and insurers both evaluating creditworthiness). When agents can strategically manipulate their features, this creates complex interactions between multiple decision-makers and strategic agents. How do strategic agents behave when facing multiple coupled decision rules, and what are the equilibrium outcomes when multiple learners simultaneously optimize their decision rules?</em>
+                  </p>
+                  <div class="research-highlights">
+                    <ul class="achievements">
+                      <li>Formalized a <strong>multi-learner</strong> strategic classification setting: learners simultaneously publish decision rules; a strategic agent chooses a manipulated report considering all rules and manipulation costs</li>
+                      <li>Characterized optimal responses for the agent <em>x*</em> and for each learner's best response <em>br<sub>i</sub></em> under strictly concave utilities and linear manipulation cost</li>
+                      <li><strong>Proved existence of PSNE</strong> among learners' released rules via continuity of argmax and Brouwer's Fixed-Point Theorem; parameters bounded over compact convex sets</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            <!-- Parallelizing Neural Network Hyperparameter Tuning -->
+            <div class="card research-card">
+                <div class="research-header">
+                    <h3 class="research-title"><a href="https://github.com/evanjiang943/parallel-hyperparameter-tuning" target="_blank">Parallelizing Neural Network Hyperparameter Tuning</a></h3>
+                    <span class="research-period">2023</span>
                 </div>
                 <div class="research-content">
                     <p class="research-abstract">
-                        Developed an innovative approach combining openMP multi-threading and Asynchronous Successive Halving 
-                        to optimize hyperparameter search for neural networks, achieving significant performance improvements.
+                        <em>Neural network training requires extensive hyperparameter tuning, but traditional sequential search methods are computationally expensive and time-consuming. How can we leverage parallel computing techniques to accelerate hyperparameter optimization while maintaining search quality and model performance?</em>
                     </p>
                     <div class="research-highlights">
-                        <h4>Key Results</h4>
                         <ul class="achievements">
                             <li>Devised approach combining openMP multi-threading and Asynchronous Successive Halving for optimal hyperparameter configurations</li>
-                            <li>Achieved <strong>3.5x speedup</strong> over sequential baseline using single compute node</li>
-                            <li>Maintained model flexibility while significantly reducing training time</li>
+                            <li>Achieved <strong>3.5x speedup</strong> over sequential baseline using single compute node, maintaining model flexibility while significantly reducing training time</li>
                         </ul>
-                    </div>
-                    <div class="research-keywords">
-                        <span class="keyword">High Performance Computing</span>
-                        <span class="keyword">Neural Networks</span>
-                        <span class="keyword">Hyperparameter Optimization</span>
-                        <span class="keyword">Parallel Computing</span>
                     </div>
                 </div>
             </div>
