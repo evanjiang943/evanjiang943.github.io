@@ -505,67 +505,6 @@ a:hover {
     margin-bottom: var(--spacing-md);
 }
 
-.project-tile {
-    position: relative;
-}
-
-.project-top-right {
-    position: absolute;
-    top: var(--spacing-lg);
-    right: var(--spacing-lg);
-    display: flex;
-    gap: var(--spacing-xs);
-    align-items: center;
-    z-index: 10;
-}
-
-.project-github-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: var(--accent-color);
-    color: var(--primary-white);
-    text-decoration: none;
-    border-radius: 50%;
-    font-size: 14px;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.project-github-btn:hover {
-    background: var(--dark-gray);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.project-status-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.project-status-icon.ready {
-    background: #e8f5e8;
-    color: #2d5a2d;
-}
-
-.project-status-icon.soon {
-    background: #fff3cd;
-    color: #856404;
-}
-
-.project-status-icon.concept {
-    background: #d1ecf1;
-    color: #0c5460;
-}
 
 .project-number {
     font-size: var(--font-size-xl);
