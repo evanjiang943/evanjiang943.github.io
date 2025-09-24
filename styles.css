@@ -834,6 +834,8 @@ a:hover {
         border-bottom: 1px solid var(--border-gray);
         padding: var(--spacing-md) var(--spacing-lg);
         margin-bottom: var(--spacing-md);
+        z-index: 1;
+        background: var(--primary-white);
     }
     
     .main-content {
@@ -853,12 +855,18 @@ a:hover {
         display: flex;
         padding: var(--spacing-sm) 0;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: var(--spacing-sm);
     }
     
     .nav-link {
         white-space: nowrap;
         border-left: none;
         border-bottom: 3px solid transparent;
+        pointer-events: auto;
+        z-index: 10;
+        min-width: fit-content;
+        flex-shrink: 0;
     }
     
     .nav-link.active {
@@ -881,6 +889,7 @@ a:hover {
         left: auto;
         padding: var(--spacing-sm) 0;
         margin-top: var(--spacing-md);
+        display: none; /* Hide footer with time on mobile */
     }
     
     .social-links {
@@ -889,6 +898,24 @@ a:hover {
         right: auto;
         margin-top: var(--spacing-sm);
         justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: var(--spacing-xs);
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .social-links::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    .social-links::-webkit-scrollbar-track {
+        background: var(--light-gray);
+        border-radius: 2px;
+    }
+    
+    .social-links::-webkit-scrollbar-thumb {
+        background: var(--medium-gray);
+        border-radius: 2px;
     }
     
     .project-tile {
