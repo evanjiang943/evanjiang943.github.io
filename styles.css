@@ -36,7 +36,7 @@
     /* Layout */
     --sidebar-width: 140px;
     --viewport-padding-horizontal: 80px;
-    --viewport-padding-vertical: 48px;
+    --viewport-padding-vertical: 72px;
     --viewport-padding-bottom: 48px;
 }
 
@@ -804,6 +804,7 @@ a:hover {
 @media (min-width: 1200px) {
     :root {
         --viewport-padding-horizontal: 100px;
+        --viewport-padding-vertical: 80px;
         --sidebar-width: 160px;
     }
     
@@ -815,7 +816,7 @@ a:hover {
 @media (max-width: 768px) {
     :root {
         --viewport-padding-horizontal: 20px;
-        --viewport-padding-vertical: 20px;
+        --viewport-padding-vertical: 32px;
         --viewport-padding-bottom: 20px;
     }
     
