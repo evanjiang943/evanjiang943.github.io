@@ -219,24 +219,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 10);
     });
 
-    // Update PST military time
-    function updatePSTTime() {
-        const now = new Date();
-        const pstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
-        const militaryTime = pstTime.toLocaleTimeString('en-US', {
-            hour12: false,
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-        
-        const timeElement = document.getElementById('pst-time');
-        if (timeElement) {
-            timeElement.textContent = `[${militaryTime}]`;
-        }
-    }
+});
 
-    // Update time immediately and then every second
+// Update PST military time - moved outside DOMContentLoaded to ensure it runs
+function updatePSTTime() {
+    const now = new Date();
+    const pstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
+    const militaryTime = pstTime.toLocaleTimeString('en-US', {
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    
+    const timeElement = document.getElementById('pst-time');
+    if (timeElement) {
+        timeElement.textContent = `[${militaryTime}]`;
+    }
+}
+
+// Update time when page loads and then every second
+document.addEventListener('DOMContentLoaded', function() {
     updatePSTTime();
     setInterval(updatePSTTime, 1000);
 });
