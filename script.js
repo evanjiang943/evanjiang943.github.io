@@ -241,4 +241,21 @@ function updatePSTTime() {
 document.addEventListener('DOMContentLoaded', function() {
     updatePSTTime();
     setInterval(updatePSTTime, 1000);
+    
+    // Preserve scroll position on mobile navigation
+    if (window.innerWidth <= 768) {
+        // Store scroll position before page unload
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+        });
+        
+        // Restore scroll position after page load
+        const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+        if (savedScrollPosition) {
+            setTimeout(function() {
+                window.scrollTo(0, parseInt(savedScrollPosition));
+                sessionStorage.removeItem('scrollPosition');
+            }, 50);
+        }
+    }
 });
