@@ -232,18 +232,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const timeElement = document.getElementById('pst-time');
         if (timeElement) {
-            timeElement.textContent = militaryTime;
-        } else {
-            console.log('PST time element not found');
+            timeElement.textContent = `[${militaryTime}]`;
         }
     }
 
     // Update time immediately and then every second
-    setTimeout(updatePSTTime, 100); // Small delay to ensure DOM is ready
+    updatePSTTime();
     setInterval(updatePSTTime, 1000);
-    
-    // Also try to update when DOM is fully loaded
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updatePSTTime);
-    }
 });
