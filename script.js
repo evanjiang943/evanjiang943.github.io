@@ -218,4 +218,32 @@ document.addEventListener('DOMContentLoaded', function() {
             // Any scroll-based animations can be added here
         }, 10);
     });
+
+    // Update PST military time
+    function updatePSTTime() {
+        const now = new Date();
+        const pstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
+        const militaryTime = pstTime.toLocaleTimeString('en-US', {
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        
+        const timeElement = document.getElementById('pst-time');
+        if (timeElement) {
+            timeElement.textContent = militaryTime;
+        } else {
+            console.log('PST time element not found');
+        }
+    }
+
+    // Update time immediately and then every second
+    setTimeout(updatePSTTime, 100); // Small delay to ensure DOM is ready
+    setInterval(updatePSTTime, 1000);
+    
+    // Also try to update when DOM is fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updatePSTTime);
+    }
 });
