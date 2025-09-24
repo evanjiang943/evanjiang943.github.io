@@ -1040,6 +1040,22 @@ body {
         width: 0px;
         background: transparent;
     }
+    
+    /* Ensure desktop social links maintain fixed positioning */
+    .social-links {
+        position: fixed;
+        bottom: var(--viewport-padding-bottom);
+        right: calc(var(--viewport-padding-horizontal) + var(--spacing-lg));
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: center;
+        justify-content: flex-end;
+        z-index: 1000;
+        overflow-x: visible;
+        white-space: normal;
+        padding-bottom: 0;
+        margin-top: 0;
+    }
 }
 
 /* Selection styles */
