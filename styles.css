@@ -817,7 +817,7 @@ a:hover {
 
 @media (max-width: 768px) {
     :root {
-        --viewport-padding-horizontal: 16px;
+        --viewport-padding-horizontal: 24px;
         --viewport-padding-vertical: 8px;
         --viewport-padding-bottom: 8px;
     }
@@ -839,7 +839,7 @@ a:hover {
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--border-gray);
-        padding: var(--spacing-sm) var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-lg);
         margin-bottom: var(--spacing-sm);
         z-index: 1;
         background: var(--primary-white);
@@ -855,7 +855,7 @@ a:hover {
     }
     
     .content {
-        padding: var(--spacing-sm) var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-lg);
         max-width: 100%;
         width: 100%;
         margin: 0;
