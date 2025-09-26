@@ -1093,8 +1093,8 @@ a:hover {
         font-size: clamp(1.75rem, 6vw, 2.5rem);
         line-height: 1.2;
         margin-bottom: var(--mobile-spacing-md);
-        text-align: center;
-        font-weight: 400;
+        text-align: left;
+        font-weight: 700;
     }
     
     .hero-tagline {
