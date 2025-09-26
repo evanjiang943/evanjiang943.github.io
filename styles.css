@@ -823,7 +823,7 @@ a:hover {
         --mobile-spacing-md: 16px;
         --mobile-spacing-lg: 24px;
         --mobile-spacing-xl: 32px;
-        --mobile-content-to-socials: 40px;
+        --mobile-content-to-socials: 24px;
     }
     
     html {
