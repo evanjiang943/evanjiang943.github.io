@@ -4,37 +4,54 @@ document.addEventListener('DOMContentLoaded', function() {
     function initMobileNav() {
         const mobileHeader = document.querySelector('.mobile-nav-header');
         const dropdown = document.querySelector('.mobile-nav-dropdown');
+        const overlay = document.querySelector('.mobile-nav-overlay');
         const toggle = document.querySelector('.mobile-nav-toggle');
         
-        if (mobileHeader && dropdown && toggle) {
+        if (mobileHeader && dropdown && overlay && toggle) {
+            // Toggle menu
             mobileHeader.addEventListener('click', function() {
                 const isOpen = dropdown.classList.contains('open');
                 
                 if (isOpen) {
-                    dropdown.classList.remove('open');
-                    toggle.classList.remove('open');
+                    closeMenu();
                 } else {
-                    dropdown.classList.add('open');
-                    toggle.classList.add('open');
+                    openMenu();
                 }
+            });
+            
+            // Close dropdown when clicking on overlay
+            overlay.addEventListener('click', function() {
+                closeMenu();
             });
             
             // Close dropdown when clicking on a nav link
             const navLinks = dropdown.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    dropdown.classList.remove('open');
-                    toggle.classList.remove('open');
+                    closeMenu();
                 });
             });
             
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!mobileHeader.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.remove('open');
-                    toggle.classList.remove('open');
+            // Close with escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+                    closeMenu();
                 }
             });
+            
+            function openMenu() {
+                dropdown.classList.add('open');
+                overlay.classList.add('open');
+                toggle.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMenu() {
+                dropdown.classList.remove('open');
+                overlay.classList.remove('open');
+                toggle.classList.remove('open');
+                document.body.style.overflow = '';
+            }
         }
     }
     
