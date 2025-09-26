@@ -817,7 +817,7 @@ a:hover {
 
 @media (max-width: 768px) {
     :root {
-        --mobile-padding: 32px;
+        --mobile-padding: 12px;
         --mobile-spacing-xs: 8px;
         --mobile-spacing-sm: 12px;
         --mobile-spacing-md: 16px;
