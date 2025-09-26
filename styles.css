@@ -1084,6 +1084,11 @@ a:hover {
         display: block;
     }
     
+    /* Hide social links on all pages except home page (mobile only) */
+    body:not(.page-home) .social-links {
+        display: none;
+    }
+    
     /* Mobile content and social alignment - consistent spacing */
     
     
