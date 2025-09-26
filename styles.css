@@ -1091,6 +1091,17 @@ a:hover {
     
     /* Mobile content and social alignment - consistent spacing */
     
+    /* Add extra left padding to home page content */
+    .page-home .hero-name,
+    .page-home .intro-text {
+        padding-left: 12px;
+    }
+    
+    /* Add extra left padding to education page content */
+    .page-education .simple-item {
+        padding-left: 12px;
+    }
+    
     
     .project-tile {
         padding: var(--spacing-md);
