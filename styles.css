@@ -1237,6 +1237,24 @@ body {
         background: transparent;
     }
     
+    /* Show 'experience' on desktop instead of 'work' */
+    .sidebar .nav-link[href="experience.html"] {
+        position: relative;
+    }
+    
+    .sidebar .nav-link[href="experience.html"]:after {
+        content: 'experience';
+        position: absolute;
+        top: 0;
+        left: var(--spacing-lg);
+        right: 0;
+        bottom: 0;
+        background: var(--primary-white);
+        display: flex;
+        align-items: center;
+        padding: var(--spacing-xs) 0;
+    }
+    
     /* Restore desktop main-content positioning */
     .main-content {
         margin-left: calc(var(--sidebar-width) + var(--spacing-sm)) !important;
