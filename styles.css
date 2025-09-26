@@ -817,12 +817,13 @@ a:hover {
 
 @media (max-width: 768px) {
     :root {
-        --mobile-padding: 12px;
+        --mobile-padding: 24px;
         --mobile-spacing-xs: 8px;
         --mobile-spacing-sm: 12px;
         --mobile-spacing-md: 16px;
         --mobile-spacing-lg: 24px;
         --mobile-spacing-xl: 32px;
+        --mobile-content-to-socials: 40px;
     }
     
     html {
@@ -1050,7 +1051,7 @@ a:hover {
         display: none;
     }
     
-    /* Mobile social links - vertical stack with all links */
+    /* Mobile social links - aligned with content */
     .social-links {
         position: static;
         display: flex;
@@ -1058,7 +1059,7 @@ a:hover {
         justify-content: flex-start;
         align-items: flex-start;
         gap: 4px;
-        margin-top: var(--mobile-spacing-lg);
+        margin-top: var(--mobile-content-to-socials);
         padding: 0 var(--mobile-padding);
         border-top: none;
         background: transparent;
@@ -1083,22 +1084,7 @@ a:hover {
         display: block;
     }
     
-    /* Ensure vertical alignment between content and socials on mobile */
-    .content,
-    .social-links {
-        padding-left: var(--mobile-padding);
-        padding-right: var(--mobile-padding);
-    }
-    
-    /* Ensure hero name aligns with content and socials */
-    .hero-name,
-    .intro-text,
-    .simple-item {
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-    }
+    /* Mobile content and social alignment - consistent spacing */
     
     
     .project-tile {
