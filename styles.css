@@ -817,7 +817,7 @@ a:hover {
 
 @media (max-width: 768px) {
     :root {
-        --mobile-padding: 20px;
+        --mobile-padding: 24px;
         --mobile-spacing-xs: 8px;
         --mobile-spacing-sm: 12px;
         --mobile-spacing-md: 16px;
@@ -841,6 +841,7 @@ a:hover {
         flex-direction: column;
     }
     
+    /* Mobile Navigation Dropdown */
     .sidebar {
         position: sticky;
         top: 0;
@@ -848,11 +849,48 @@ a:hover {
         height: auto;
         border-right: none;
         border-bottom: 1px solid var(--border-gray);
-        padding: var(--mobile-spacing-md) var(--mobile-padding);
+        padding: 0;
         margin: 0;
-        z-index: 100;
+        z-index: 1000;
         background: var(--primary-white);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--mobile-spacing-lg) var(--mobile-padding);
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .mobile-nav-title {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--dark-gray);
+        text-transform: lowercase;
+    }
+    
+    .mobile-nav-toggle {
+        font-size: 18px;
+        color: var(--medium-gray);
+        transition: transform 0.2s ease;
+    }
+    
+    .mobile-nav-toggle.open {
+        transform: rotate(180deg);
+    }
+    
+    .mobile-nav-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: var(--light-gray);
+    }
+    
+    .mobile-nav-dropdown.open {
+        max-height: 300px;
     }
     
     .main-content {
@@ -878,43 +916,38 @@ a:hover {
     
     .nav-links {
         display: flex;
-        padding: var(--mobile-spacing-sm) 0;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: var(--mobile-spacing-md);
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-    
-    .nav-links::-webkit-scrollbar {
-        display: none;
+        flex-direction: column;
+        padding: var(--mobile-spacing-md) var(--mobile-padding);
+        gap: 0;
     }
     
     .nav-link {
-        white-space: nowrap;
-        border-left: none;
-        border-bottom: 2px solid transparent;
-        pointer-events: auto;
-        z-index: 10;
-        min-width: fit-content;
-        flex-shrink: 0;
-        padding: var(--mobile-spacing-sm) var(--mobile-spacing-md);
-        font-size: 14px;
+        display: block;
+        width: 100%;
+        padding: var(--mobile-spacing-lg) 0;
+        font-size: 16px;
         font-weight: 400;
+        color: var(--dark-gray);
+        text-decoration: none;
+        border-bottom: 1px solid var(--border-gray);
         transition: all 0.2s ease;
-        border-radius: 6px;
-        background: transparent;
+        text-transform: lowercase;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
     }
     
     .nav-link:hover {
-        background: var(--light-gray);
+        color: var(--accent-color);
+        padding-left: var(--mobile-spacing-sm);
     }
     
     .nav-link.active {
-        border-left: none;
-        border-bottom-color: var(--accent-color);
-        background: var(--light-gray);
+        color: var(--accent-color);
         font-weight: 500;
+        padding-left: var(--mobile-spacing-sm);
+        background: transparent;
     }
     
     .projects-grid {
@@ -930,38 +963,46 @@ a:hover {
         display: none; /* Hide footer with time on mobile */
     }
     
+    /* Show mobile nav elements on mobile */
+    .mobile-nav-header,
+    .mobile-nav-dropdown {
+        display: block;
+    }
+    
+    /* Mobile social links - moved to bottom of content */
     .social-links {
+        position: static;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: var(--mobile-spacing-lg);
-        margin-top: var(--mobile-spacing-xl);
-        padding: var(--mobile-spacing-lg) 0;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-    
-    .social-links::-webkit-scrollbar {
-        display: none;
+        flex-wrap: wrap;
+        gap: var(--mobile-spacing-md);
+        margin-top: var(--mobile-spacing-2xl);
+        padding: var(--mobile-spacing-xl) var(--mobile-padding);
+        border-top: 1px solid var(--border-gray);
+        background: var(--light-gray);
     }
     
     .social-link {
         flex-shrink: 0;
-        padding: var(--mobile-spacing-sm) var(--mobile-spacing-md);
+        padding: var(--mobile-spacing-md) var(--mobile-spacing-lg);
         font-size: 14px;
         font-weight: 400;
-        border-radius: 6px;
-        background: var(--light-gray);
+        border-radius: 8px;
+        background: var(--primary-white);
+        border: 1px solid var(--border-gray);
         transition: all 0.2s ease;
         text-align: center;
-        min-width: 60px;
+        min-width: 70px;
+        color: var(--dark-gray);
+        text-decoration: none;
     }
     
     .social-link:hover {
-        background: var(--medium-gray);
+        background: var(--accent-color);
         color: var(--primary-white);
+        border-color: var(--accent-color);
+        transform: translateY(-2px);
     }
     
     .project-tile {
@@ -1130,6 +1171,42 @@ body {
     html::-webkit-scrollbar {
         width: 0px;
         background: transparent;
+    }
+    
+    /* Hide mobile nav elements on desktop */
+    .mobile-nav-header,
+    .mobile-nav-dropdown {
+        display: none;
+    }
+    
+    /* Show desktop nav elements */
+    .sidebar .nav-links {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-xl) 0;
+        gap: 0;
+    }
+    
+    .sidebar .nav-link {
+        display: block;
+        padding: var(--spacing-xs) var(--spacing-lg);
+        color: var(--medium-gray);
+        text-decoration: none;
+        font-weight: 300;
+        font-size: var(--font-size-base);
+        transition: all 0.2s ease;
+        border-bottom: none;
+    }
+    
+    .sidebar .nav-link:hover {
+        color: var(--dark-gray);
+        padding-left: var(--spacing-lg);
+    }
+    
+    .sidebar .nav-link.active {
+        color: var(--accent-color);
+        font-weight: 500;
+        padding-left: var(--spacing-lg);
     }
     
     /* Ensure desktop social links maintain fixed positioning */

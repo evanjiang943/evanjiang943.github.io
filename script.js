@@ -1,5 +1,45 @@
 // Smooth scrolling and interactive elements
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile navigation dropdown functionality
+    function initMobileNav() {
+        const mobileHeader = document.querySelector('.mobile-nav-header');
+        const dropdown = document.querySelector('.mobile-nav-dropdown');
+        const toggle = document.querySelector('.mobile-nav-toggle');
+        
+        if (mobileHeader && dropdown && toggle) {
+            mobileHeader.addEventListener('click', function() {
+                const isOpen = dropdown.classList.contains('open');
+                
+                if (isOpen) {
+                    dropdown.classList.remove('open');
+                    toggle.classList.remove('open');
+                } else {
+                    dropdown.classList.add('open');
+                    toggle.classList.add('open');
+                }
+            });
+            
+            // Close dropdown when clicking on a nav link
+            const navLinks = dropdown.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    dropdown.classList.remove('open');
+                    toggle.classList.remove('open');
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileHeader.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                    toggle.classList.remove('open');
+                }
+            });
+        }
+    }
+    
+    // Initialize mobile navigation
+    initMobileNav();
     // Shuffling text animation for hero name
     function shuffleHeroName() {
         const heroName = document.getElementById('hero-name');
