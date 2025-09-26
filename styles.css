@@ -1174,12 +1174,19 @@ body {
     }
     
     /* Hide mobile nav elements on desktop */
-    .mobile-nav-header,
-    .mobile-nav-dropdown {
+    .mobile-nav-header {
         display: none;
     }
     
-    /* Show desktop nav elements */
+    /* Show desktop nav elements - make dropdown always visible */
+    .mobile-nav-dropdown {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: transparent !important;
+        transition: none !important;
+    }
+    
     .sidebar .nav-links {
         display: flex;
         flex-direction: column;
@@ -1196,17 +1203,16 @@ body {
         font-size: var(--font-size-base);
         transition: all 0.2s ease;
         border-bottom: none;
+        text-transform: lowercase;
     }
     
     .sidebar .nav-link:hover {
         color: var(--dark-gray);
-        padding-left: var(--spacing-lg);
     }
     
     .sidebar .nav-link.active {
         color: var(--accent-color);
         font-weight: 500;
-        padding-left: var(--spacing-lg);
     }
     
     /* Ensure desktop social links maintain fixed positioning */
