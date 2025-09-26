@@ -841,44 +841,140 @@ a:hover {
         flex-direction: column;
     }
     
-    /* Mobile Navigation - Simple horizontal layout */
+    /* Mobile Navigation */
     .sidebar {
-        position: static;
-        top: auto;
-        left: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: auto;
         border: none;
-        padding: var(--mobile-spacing-lg) var(--mobile-padding) var(--mobile-spacing-md);
+        padding: 0;
         margin: 0;
-        z-index: auto;
-        background: var(--primary-white);
+        z-index: 1000;
+        background: transparent;
         box-shadow: none;
+        pointer-events: none;
+    }
+    
+    /* Hamburger Menu Button */
+    .mobile-nav-header {
+        position: fixed;
+        top: var(--mobile-spacing-lg);
+        right: var(--mobile-padding);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        background: var(--primary-white);
+        border: 1px solid var(--border-gray);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        pointer-events: auto;
+        z-index: 1002;
+    }
+    
+    .mobile-nav-toggle {
+        width: 20px;
+        height: 16px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-toggle::before,
+    .mobile-nav-toggle::after,
+    .mobile-nav-toggle {
+        background: var(--dark-gray);
+    }
+    
+    .mobile-nav-toggle::before,
+    .mobile-nav-toggle::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-toggle::before {
+        top: 0;
+    }
+    
+    .mobile-nav-toggle::after {
+        bottom: 0;
+    }
+    
+    .mobile-nav-toggle {
+        background: var(--dark-gray);
+        height: 2px;
+        margin: 7px 0;
+    }
+    
+    /* Hamburger animation when open */
+    .mobile-nav-toggle.open {
+        background: transparent;
+    }
+    
+    .mobile-nav-toggle.open::before {
+        transform: rotate(45deg);
+        top: 7px;
+    }
+    
+    .mobile-nav-toggle.open::after {
+        transform: rotate(-45deg);
+        bottom: 7px;
+    }
+    
+    /* Blur overlay */
+    .mobile-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(250, 250, 250, 0.95);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1001;
+        pointer-events: none;
+    }
+    
+    .mobile-nav-overlay.open {
+        opacity: 1;
+        visibility: visible;
         pointer-events: auto;
     }
     
-    /* Hide mobile hamburger elements */
-    .mobile-nav-header,
-    .mobile-nav-overlay {
-        display: none;
+    /* Navigation dropdown */
+    .mobile-nav-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        width: calc(100% - 48px);
+        max-width: 300px;
+        background: var(--primary-white);
+        border: 1px solid var(--border-gray);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1002;
+        pointer-events: none;
     }
     
-    /* Mobile navigation dropdown - now always visible */
-    .mobile-nav-dropdown {
-        position: static;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        max-width: none;
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
+    .mobile-nav-dropdown.open {
         opacity: 1;
         visibility: visible;
-        transition: none;
-        z-index: auto;
+        transform: translate(-50%, -50%) scale(1);
         pointer-events: auto;
     }
     
@@ -895,48 +991,48 @@ a:hover {
     }
     
     .content {
-        padding: var(--mobile-spacing-xl) var(--mobile-padding);
+        padding: var(--mobile-spacing-lg) var(--mobile-padding);
         max-width: 100%;
         width: 100%;
         margin: 0 auto;
         overflow-x: hidden;
         box-sizing: border-box;
-        padding-top: var(--mobile-spacing-2xl);
     }
     
     .nav-links {
         display: flex;
-        flex-direction: row;
-        padding: 0;
-        gap: var(--mobile-spacing-lg);
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        flex-direction: column;
+        padding: var(--mobile-spacing-lg);
+        gap: 0;
     }
     
     .nav-link {
-        display: inline-block;
-        width: auto;
-        padding: var(--mobile-spacing-xs) 0;
-        font-size: var(--font-size-base);
+        display: block;
+        width: 100%;
+        padding: var(--mobile-spacing-lg) var(--mobile-spacing-md);
+        font-size: 18px;
         font-weight: 400;
-        color: var(--medium-gray);
+        color: var(--dark-gray);
         text-decoration: none;
-        border-bottom: none;
-        transition: color 0.2s ease;
+        border-bottom: 1px solid var(--border-gray);
+        transition: all 0.2s ease;
         text-transform: lowercase;
-        text-align: left;
-        white-space: nowrap;
+        text-align: center;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
     }
     
     .nav-link:hover {
         color: var(--accent-color);
-        background: transparent;
+        background: var(--light-gray);
     }
     
     .nav-link.active {
         color: var(--accent-color);
         font-weight: 500;
-        background: transparent;
+        background: var(--light-gray);
     }
     
     .projects-grid {
@@ -953,35 +1049,32 @@ a:hover {
     }
     
     /* Show mobile nav elements on mobile */
-    .mobile-nav-dropdown {
+    .mobile-nav-header,
+    .mobile-nav-dropdown,
+    .mobile-nav-overlay {
         display: block;
     }
     
-    .mobile-nav-header,
-    .mobile-nav-overlay {
-        display: none;
-    }
-    
-    /* Mobile social links - minimal styling */
+    /* Mobile social links - simple text links */
     .social-links {
         position: static;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        gap: var(--mobile-spacing-lg);
+        gap: var(--mobile-spacing-xl);
         margin-top: var(--mobile-spacing-2xl);
-        padding: 0 var(--mobile-padding);
-        border-top: none;
+        padding: var(--mobile-spacing-xl) var(--mobile-padding);
+        border-top: 1px solid var(--border-gray);
         background: transparent;
     }
     
     .social-link {
         color: var(--medium-gray);
         text-decoration: none;
-        font-size: var(--font-size-base);
+        font-size: 16px;
         font-weight: 400;
         transition: color 0.2s ease;
-        text-transform: lowercase;
+        text-transform: none;
     }
     
     .social-link:hover {
@@ -1004,8 +1097,8 @@ a:hover {
         font-size: clamp(1.75rem, 6vw, 2.5rem);
         line-height: 1.2;
         margin-bottom: var(--mobile-spacing-md);
-        text-align: left;
-        font-weight: 700;
+        text-align: center;
+        font-weight: 400;
     }
     
     .hero-tagline {
@@ -1235,24 +1328,6 @@ body {
         color: var(--accent-color);
         font-weight: 500;
         background: transparent;
-    }
-    
-    /* Show 'experience' on desktop instead of 'work' */
-    .sidebar .nav-link[href="experience.html"] {
-        position: relative;
-    }
-    
-    .sidebar .nav-link[href="experience.html"]:after {
-        content: 'experience';
-        position: absolute;
-        top: 0;
-        left: var(--spacing-lg);
-        right: 0;
-        bottom: 0;
-        background: var(--primary-white);
-        display: flex;
-        align-items: center;
-        padding: var(--spacing-xs) 0;
     }
     
     /* Restore desktop main-content positioning */
