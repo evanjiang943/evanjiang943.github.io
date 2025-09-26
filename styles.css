@@ -1057,7 +1057,7 @@ a:hover {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: var(--mobile-spacing-xs);
+        gap: 4px;
         margin-top: var(--mobile-spacing-lg);
         padding: 0 var(--mobile-padding);
         border-top: none;
@@ -1081,6 +1081,23 @@ a:hover {
     /* Show all social links on mobile */
     .social-links .social-link {
         display: block;
+    }
+    
+    /* Ensure vertical alignment between content and socials on mobile */
+    .content,
+    .social-links {
+        padding-left: var(--mobile-padding);
+        padding-right: var(--mobile-padding);
+    }
+    
+    /* Ensure hero name aligns with content and socials */
+    .hero-name,
+    .intro-text,
+    .simple-item {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
     
     
