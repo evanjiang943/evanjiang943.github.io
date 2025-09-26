@@ -823,7 +823,7 @@ a:hover {
         --mobile-spacing-md: 16px;
         --mobile-spacing-lg: 24px;
         --mobile-spacing-xl: 32px;
-        --mobile-content-to-socials: 24px;
+        --mobile-content-to-socials: 16px;
     }
     
     html {
@@ -1091,15 +1091,17 @@ a:hover {
     
     /* Mobile content and social alignment - consistent spacing */
     
-    /* Add extra left padding to home page content */
+    /* Add extra left and right padding to home page content */
     .page-home .hero-name,
     .page-home .intro-text {
         padding-left: 12px;
+        padding-right: 12px;
     }
     
-    /* Add extra left padding to education page content */
+    /* Add extra left and right padding to education page content */
     .page-education .simple-item {
         padding-left: 12px;
+        padding-right: 12px;
     }
     
     
