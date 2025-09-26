@@ -1057,7 +1057,7 @@ a:hover {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: var(--mobile-spacing-sm);
+        gap: var(--mobile-spacing-xs);
         margin-top: var(--mobile-spacing-lg);
         padding: 0 var(--mobile-padding);
         border-top: none;
@@ -1083,21 +1083,6 @@ a:hover {
         display: block;
     }
     
-    /* Extra left padding for home and education pages on mobile */
-    .page-home .content,
-    .page-education .content {
-        padding-left: calc(var(--mobile-padding) + var(--mobile-spacing-md));
-    }
-    
-    .page-home .sidebar,
-    .page-education .sidebar {
-        padding-left: calc(var(--mobile-padding) + var(--mobile-spacing-md));
-    }
-    
-    .page-home .social-links,
-    .page-education .social-links {
-        padding-left: calc(var(--mobile-padding) + var(--mobile-spacing-md));
-    }
     
     .project-tile {
         padding: var(--spacing-md);
