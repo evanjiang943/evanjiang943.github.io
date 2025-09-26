@@ -997,7 +997,7 @@ a:hover {
         flex-direction: row;
         padding: 0;
         gap: var(--mobile-spacing-lg);
-        justify-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
     }
     
