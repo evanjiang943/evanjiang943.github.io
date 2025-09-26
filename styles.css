@@ -841,20 +841,20 @@ a:hover {
         flex-direction: column;
     }
     
-    /* Mobile Navigation */
+    /* Mobile Navigation - Simple horizontal layout */
     .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
+        position: static;
+        top: auto;
+        left: auto;
         width: 100%;
         height: auto;
         border: none;
-        padding: 0;
+        padding: var(--mobile-spacing-lg) var(--mobile-padding) var(--mobile-spacing-md);
         margin: 0;
-        z-index: 1000;
-        background: transparent;
+        z-index: auto;
+        background: var(--primary-white);
         box-shadow: none;
-        pointer-events: none;
+        pointer-events: auto;
     }
     
     /* Hamburger Menu Button */
@@ -952,29 +952,22 @@ a:hover {
         pointer-events: auto;
     }
     
-    /* Navigation dropdown */
+    /* Mobile navigation dropdown - now always visible */
     .mobile-nav-dropdown {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.9);
-        width: calc(100% - 48px);
-        max-width: 300px;
-        background: var(--primary-white);
-        border: 1px solid var(--border-gray);
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1002;
-        pointer-events: none;
-    }
-    
-    .mobile-nav-dropdown.open {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
         opacity: 1;
         visibility: visible;
-        transform: translate(-50%, -50%) scale(1);
+        transition: none;
+        z-index: auto;
         pointer-events: auto;
     }
     
@@ -1001,38 +994,37 @@ a:hover {
     
     .nav-links {
         display: flex;
-        flex-direction: column;
-        padding: var(--mobile-spacing-lg);
-        gap: 0;
+        flex-direction: row;
+        padding: 0;
+        gap: var(--mobile-spacing-lg);
+        justify-content: flex-start;
+        flex-wrap: wrap;
     }
     
     .nav-link {
-        display: block;
-        width: 100%;
-        padding: var(--mobile-spacing-lg) var(--mobile-spacing-md);
-        font-size: 18px;
+        display: inline-block;
+        width: auto;
+        padding: var(--mobile-spacing-xs) 0;
+        font-size: var(--font-size-base);
         font-weight: 400;
-        color: var(--dark-gray);
+        color: var(--medium-gray);
         text-decoration: none;
-        border-bottom: 1px solid var(--border-gray);
-        transition: all 0.2s ease;
-        text-transform: lowercase;
-        text-align: center;
-    }
-    
-    .nav-link:last-child {
         border-bottom: none;
+        transition: color 0.2s ease;
+        text-transform: lowercase;
+        text-align: left;
+        white-space: nowrap;
     }
     
     .nav-link:hover {
         color: var(--accent-color);
-        background: var(--light-gray);
+        background: transparent;
     }
     
     .nav-link.active {
         color: var(--accent-color);
         font-weight: 500;
-        background: var(--light-gray);
+        background: transparent;
     }
     
     .projects-grid {
@@ -1049,10 +1041,13 @@ a:hover {
     }
     
     /* Show mobile nav elements on mobile */
-    .mobile-nav-header,
-    .mobile-nav-dropdown,
-    .mobile-nav-overlay {
+    .mobile-nav-dropdown {
         display: block;
+    }
+    
+    .mobile-nav-header,
+    .mobile-nav-overlay {
+        display: none;
     }
     
     /* Mobile social links - vertical stack with all links */
