@@ -1341,6 +1341,38 @@ body {
         display: block !important;
         justify-content: initial !important;
         padding: 0 !important;
+        margin-top: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+        left: 0 !important;
+        right: auto !important;
+        position: static !important;
+        transform: none !important;
+    }
+    
+    /* Ensure desktop content has proper positioning */
+    .content {
+        max-width: 720px !important;
+        padding: var(--spacing-xl) var(--spacing-lg) !important;
+        margin: 0 auto !important;
+        width: auto !important;
+        box-sizing: border-box !important;
+        overflow-x: visible !important;
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+    }
+    
+    /* Reset any mobile body changes */
+    body {
+        padding: var(--viewport-padding-vertical) var(--viewport-padding-horizontal) var(--viewport-padding-bottom) !important;
+        margin: 0 !important;
+        display: block !important;
+        flex-direction: initial !important;
+        width: auto !important;
+        max-width: none !important;
+        overflow-x: hidden !important;
     }
     
     /* Ensure desktop social links maintain fixed positioning */
