@@ -1055,37 +1055,53 @@ a:hover {
         display: block;
     }
     
-    /* Mobile social links - simple text links */
+    /* Mobile social links - vertical stack with all links */
     .social-links {
         position: static;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: var(--mobile-spacing-xl);
-        margin-top: var(--mobile-spacing-2xl);
-        padding: var(--mobile-spacing-xl) var(--mobile-padding);
-        border-top: 1px solid var(--border-gray);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: var(--mobile-spacing-sm);
+        margin-top: var(--mobile-spacing-lg);
+        padding: 0 var(--mobile-padding);
+        border-top: none;
         background: transparent;
     }
     
     .social-link {
         color: var(--medium-gray);
         text-decoration: none;
-        font-size: 16px;
+        font-size: var(--font-size-base);
         font-weight: 400;
         transition: color 0.2s ease;
-        text-transform: none;
+        text-transform: lowercase;
+        padding: var(--mobile-spacing-xs) 0;
     }
     
     .social-link:hover {
         color: var(--accent-color);
     }
     
-    /* Hide YouTube and Instagram on mobile */
-    .social-links .social-link[href*="youtube"],
-    .social-links .social-link[href*="instagram"],
-    .social-links .social-link[href*="substack"] {
-        display: none;
+    /* Show all social links on mobile */
+    .social-links .social-link {
+        display: block;
+    }
+    
+    /* Extra left padding for home and education pages on mobile */
+    .page-home .content,
+    .page-education .content {
+        padding-left: calc(var(--mobile-padding) + var(--mobile-spacing-md));
+    }
+    
+    .page-home .sidebar,
+    .page-education .sidebar {
+        padding-left: calc(var(--mobile-padding) + var(--mobile-spacing-md));
+    }
+    
+    .page-home .social-links,
+    .page-education .social-links {
+        padding-left: calc(var(--mobile-padding) + var(--mobile-spacing-md));
     }
     
     .project-tile {

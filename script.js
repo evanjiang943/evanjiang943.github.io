@@ -8,13 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize mobile navigation
     initMobileNav();
-    // Shuffling text animation for hero name (desktop only)
+    // Shuffling text animation for hero name
     function shuffleHeroName() {
-        // Only run animation on desktop (screen width > 768px)
-        if (window.innerWidth <= 768) {
-            return;
-        }
-        
         const heroName = document.getElementById('hero-name');
         if (!heroName) return;
         
@@ -77,24 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Start the animation (desktop only)
+    // Start the animation
     shuffleHeroName();
-    
-    // Handle screen resize - show plain text on mobile, animation on desktop
-    window.addEventListener('resize', function() {
-        const heroName = document.getElementById('hero-name');
-        if (heroName) {
-            if (window.innerWidth <= 768) {
-                // On mobile, just show plain text
-                heroName.innerHTML = 'evan jiang';
-            } else if (window.innerWidth > 768) {
-                // On desktop, run animation if not already animated
-                if (!heroName.querySelector('.letter')) {
-                    shuffleHeroName();
-                }
-            }
-        }
-    });
     // Add smooth reveal animation for cards
     const observerOptions = {
         threshold: 0.1,
