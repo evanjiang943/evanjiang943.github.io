@@ -38,6 +38,7 @@
     --viewport-padding-horizontal: 80px;
     --viewport-padding-vertical: 72px;
     --viewport-padding-bottom: 48px;
+    --cutoff-buffer: 200px;
 }
 
 body {
@@ -55,6 +56,8 @@ body {
     font-stretch: 101%;
     font-weight: 300;
 }
+
+/* Fixed cutoff above socials to prevent overlap */
 
 /* Sidebar Navigation */
 .sidebar {
@@ -91,6 +94,14 @@ body {
 .nav-link.active {
     color: var(--accent-color);
     font-weight: 500;
+}
+
+.nav-link .desktop-label {
+    display: inline;
+}
+
+.nav-link .mobile-label {
+    display: none;
 }
 
 .nav-footer {
@@ -146,12 +157,14 @@ body {
     background: var(--primary-white);
     width: calc(100vw - var(--sidebar-width) - var(--viewport-padding-horizontal) - var(--spacing-sm));
     overflow-x: hidden;
+    padding-bottom: calc(var(--viewport-padding-bottom) + var(--spacing-2xl) + var(--cutoff-buffer));
 }
 
 .content {
     max-width: 720px;
     padding: var(--spacing-xl) var(--spacing-lg);
     margin: 0 auto;
+    padding-bottom: calc(var(--spacing-xl) + var(--viewport-padding-bottom) + var(--cutoff-buffer));
 }
 
 .hero-name {
@@ -181,6 +194,10 @@ body {
     height: 4rem;
 }
 
+.spacer {
+    height: 2rem;
+}
+
 .intro-text {
     font-size: var(--font-size-base);
     line-height: 1.6;
@@ -188,6 +205,13 @@ body {
     font-weight: 300;
     max-width: 600px;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.no-transform {
+    text-transform: none;
 }
 
 
@@ -1026,6 +1050,14 @@ a:hover {
         color: var(--accent-color);
         font-weight: 500;
         background: transparent;
+    }
+    
+    .nav-link .desktop-label {
+        display: none;
+    }
+    
+    .nav-link .mobile-label {
+        display: inline;
     }
     
     .projects-grid {
